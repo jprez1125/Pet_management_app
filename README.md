@@ -7,8 +7,8 @@ The Pet Management System will allow users to:
 
 Team Members
 **Jennifer Perez**-project manager/ middleware
-**Damascene Kalisa**-backend
-**Laura Ibanez Diaz**-frontend
+**Damescene Kalisa**- backend
+**Laura ibanez diaz** - frontend
 
 Current progress as of 4/20/2026
 - Django project created  
