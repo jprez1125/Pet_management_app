@@ -6,9 +6,9 @@ The Pet Management System will allow users to:
 - Support future expansion for owners, staff, and scheduling features
 
 Team Members
--Jennifer Perez: project manager, middleware
--Damascene Kalisa: backend
--Laura Ibanez Diaz :frontend
+**Jennifer Perez**-project manager/ middleware
+**Damascene Kalisa**-backend
+**Laura Ibanez Diaz**-frontend
 
 Current progress as of 4/20/2026
 - Django project created  
