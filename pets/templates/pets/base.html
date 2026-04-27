@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pet Management</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!--Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Lobster&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="navbar">
+    <h1>Pet Managament App</h1>
+    <a href="/">Home</a>
+    <a href="/add/">Add Pet</a>
+</header>
+
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+
+</body>
+</html>
