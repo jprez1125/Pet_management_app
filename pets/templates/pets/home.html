@@ -1,0 +1,35 @@
+{% extends 'pets/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-text">
+        <h2>Welcome to Pet Management</h2>
+        <p>Manage pet profiles, appointments, and care information in one simple system.</p>
+
+        <a class="btn" href="{% url 'add_pet' %}">Add Pet</a>
+        <a class="btn secondary" href="{% url 'add_appointment' %}">Add Appointment</a>
+    </div>
+
+    <div class="hero-image">
+        <img src="{% static 'pets/images/dog.jpg' %}" alt="Pet care image">
+    </div>
+</section>
+
+<section class="cards">
+    <div class="card">
+        <h3>Pet Profiles</h3>
+        <p>Create and manage pet information.</p>
+    </div>
+
+    <div class="card">
+        <h3>Appointments</h3>
+        <p>Track visits and scheduling.</p>
+    </div>
+
+    <div class="card">
+        <h3>Medical Notes</h3>
+        <p>Keep care details organized.</p>
+    </div>
+</section>
+{% endblock %}

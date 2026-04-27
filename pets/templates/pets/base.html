@@ -1,0 +1,24 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pet Management</title>
+    <link rel="stylesheet" href="{% static 'pets/css/style.css' %}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1>Pet Management System</h1>
+        <div>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'add_pet' %}">Add Pet</a>
+            <a href="{% url 'add_appointment' %}">Add Appointment</a>
+        </div>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>
