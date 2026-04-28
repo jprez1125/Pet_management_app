@@ -1,11 +1,14 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Pet Management</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <!--Google Font-->
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'pets/css/style.css' %}">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Lobster&display=swap" rel="stylesheet">
@@ -13,16 +16,20 @@
 
 <body>
 
-<header class="navbar">
-    <h1>Pet Managament App</h1>
-    <a href="/">Home</a>
-    <a href="/add/">Add Pet</a>
-</header>
+    <nav class="navbar">
+        <h1>Pet Management System</h1>
+        <div>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'add_pet' %}">Add Pet</a>
+            <a href="{% url 'add_appointment' %}">Add Appointment</a>
+            <a href="{% url 'pet_list' %}">View Pets</a>
+        </div>
+    </nav>
 
-<div class="container">
-    {% block content %}
-    {% endblock %}
-</div>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
 
 </body>
 </html>
