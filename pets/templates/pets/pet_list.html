@@ -1,40 +1,44 @@
 {% extends 'pets/base.html' %}
 
 {% block content %}
-<h2>All pets</h2>
+<div style="display: flex; flex-direction: column; align-items: center;">
 
-{% for pet in pets %}
-    <div class="card">
-        
-        <h3>{{ pet.name }}</h3>
-        <p>Type: {{ pet.pet_type }}</p>
-        <p>Age: {{ pet.age }}</p>
-        <p>Owner: {{ pet.owner }}</p>
+    <h2 style="text-align: center;">All pets</h2>
 
-        <h4>Appointments:</h4>
-        {% for appt in pet.appointments.all %}
+    {% for pet in pets %}
+        <div class="card" style="width: 400px; margin-bottom: 20px;">
 
-            <p>
-                {{ appt.date }} {{ appt.time }}<br>
-                {{ appt.reason }}
-            </p>
-        {% empty %}
-            <p>No appointments yet</p>
+            <h3>{{ pet.name }}</h3>
+            <p>Type: {{ pet.pet_type }}</p>
+            <p>Age: {{ pet.age }}</p>
+            <p>Owner: {{ pet.owner }}</p>
+
+            <h4>Appointments:</h4>
+            {% for appt in pet.appointments.all %}
+                <p>
+                    {{ appt.date }} {{ appt.time }}<br>
+                    {{ appt.reason }}
+                </p>
+            {% empty %}
+                <p>No appointments yet</p>
             {% endfor %}
-<!--Edit Pet-->
-        <form method="GET" action="{% url 'edit_pet' pet.id %}">
-            <button type="submit" class="btn-edit">
-                 {% include 'icons/edit-svgrepo-com.svg' %}
-            </button>
-        </form>
-<!--Delete Pet-->
-        <form method="POST" action="{% url 'delete_pet' pet.id %}">
-            {% csrf_token %}
-            <button type="submit" class="btn-delete">
-                {% include 'icons/delete-1-svgrepo-com.svg' %}
-            </button>
-        </form>
-    </div>
-{% endfor %}
 
+            <!-- Edit Pet -->
+            <form method="GET" action="{% url 'edit_pet' pet.id %}">
+                <button type="submit" class="btn-edit">
+                    {% include 'icons/edit-svgrepo-com.svg' %}
+                </button>
+            </form>
+
+            <!-- Delete Pet -->
+            <form method="POST" action="{% url 'delete_pet' pet.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn-delete">
+                    {% include 'icons/delete-1-svgrepo-com.svg' %}
+                </button>
+            </form>
+
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}
