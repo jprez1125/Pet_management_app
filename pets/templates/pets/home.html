@@ -22,11 +22,10 @@
         <p>Create and manage pet information.</p>
     </div>
 
-    <div class="card">
-        <h3>Appointments</h3>
-        <p>Track visits and scheduling.</p>
-    </div>
-
+<div class="card clickable-card" onclick="window.location.href='{% url 'appointment_list' %}'">
+    <h3>Appointments</h3>
+    <p>Track visits and scheduling.</p>
+</div>
     <div class="card">
         <h3>Medical Notes</h3>
         <p>Keep care details organized.</p>

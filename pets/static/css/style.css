@@ -77,3 +77,11 @@ button:hover {
     height: 20px;
     fill: #333;
 }
+.clickable-card {
+    cursor: pointer;
+}
+
+.clickable-card:hover {
+    transform: translateY(-4px);
+    transition: 0.2s ease;
+}
