@@ -67,4 +67,15 @@ def delete_appointment(request, id):
         appt.delete()
     return redirect('pet_list')
 
+def edit_appointment(request, id):
+    appt = get_object_or_404(Appointment, id=id)
+    if request.method == "POST":
+        form = AppointmentForm(request.POST, instance=appt)
+        if form.is_valid():
+            form.save()
+            return redirect('appointment_list')
+    else:
+        form = AppointmentForm(instance=Appointment)
+    return render(request, 'pets/edit_appointment.html', {'form': form})
+
 
