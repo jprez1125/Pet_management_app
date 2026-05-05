@@ -45,9 +45,14 @@ h2 {
 h3 {
     font-family: 'Lobster', cursive;
 }
+.pets > .actions{
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
 
 /* BUTTONS */
-button {
+.btn-primary {
     background-color: #5db3d2;
     color: white;
     border: none;
@@ -58,4 +63,17 @@ button {
 
 button:hover {
     background-color: #5db3d2;
+}
+
+.btn-delete {
+    all: unset;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+}
+.btn-edit svg,
+.btn-delete svg {
+    width: 20px;
+    height: 20px;
+    fill: #333;
 }

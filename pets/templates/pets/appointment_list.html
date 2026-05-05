@@ -1,0 +1,17 @@
+{% extends 'pets/base.html' %}
+
+{% block content %}
+<h2>Appointments</h2>
+
+{% for appt in appointments %}
+<div class="card">
+    <p><strong>Pet:</strong> {{ appt.pet.name }}</p>
+    <p><strong>Date:</strong> {{ appt.date }}</p>
+    <p><strong>Time:</strong> {{ appt.time }}</p>
+    <p><strong>Reason:</strong> {{ appt.reason }}</p>
+</div>
+{% empty %}
+<p>No appointments yet</p>
+
+
+{% endblock %}
