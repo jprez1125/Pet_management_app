@@ -9,4 +9,20 @@
     <button type="submit">Save</button>
 </form>
 
+<h3>Appointments</h3>
+
+{% for appt in appointments %}
+    <div>
+        {{ appt.date }} {{ appt.time }}
+        <br>
+        {{ appt.reason }}
+
+        <form method="POST" action="{% url 'delete_appointment' appt.id %}">
+            {% csrf_token %}
+            <button type="submit" class="btn-delete">🗑</button>
+        </form>
+    </div>
+{% empty %}
+    <p>No appointments yet</p>
+{% endfor %}
 {% endblock %}
