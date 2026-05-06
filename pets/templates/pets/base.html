@@ -23,6 +23,17 @@
             <a href="{% url 'add_pet' %}">Add Pet</a>
             <a href="{% url 'add_appointment' %}">Add Appointment</a>
             <a href="{% url 'pet_list' %}">View Pets</a>
+
+            {% if user.is_authenticated %}
+                <span style="margin-right: 15px;">Hello {{ user.username }}</span>
+
+                <form method="post" action="{% url 'logout' %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-primary">Logout</button>
+                </form>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+            {% endif %}
         </div>
     </nav>
 
