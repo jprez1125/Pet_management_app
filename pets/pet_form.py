@@ -5,7 +5,7 @@ from django.utils import timezone
 class PetForm(forms.ModelForm):
     class Meta:
         model = Pet
-        fields = ['owner', 'name', 'pet_type', 'age']
+        fields = ['owner', 'name', 'pet_type', 'age', 'medications']
 
 class AppointmentForm(forms.ModelForm):
     class Meta:

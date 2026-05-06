@@ -29,7 +29,16 @@
 
                 <form method="post" action="{% url 'logout' %}" style="display:inline;">
                     {% csrf_token %}
-                    <button type="submit" class="btn-primary">Logout</button>
+                    <button type="submit" 
+                    style="background:white;
+                    color:#2f7f80;
+                    border:none;
+                    padding:8px 14px;
+                    border-radius:6px;
+                    font-weight:bold;
+                    cursor:pointer;">
+                        Logout
+                    </button>
                 </form>
             {% else %}
                 <a href="{% url 'login' %}">Login</a>

@@ -17,6 +17,7 @@ class Pet(models.Model):
     name = models.CharField(max_length=100)
     pet_type = models.CharField(max_length=50)
     age = models.IntegerField()
+    medications = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.name
