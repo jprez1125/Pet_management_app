@@ -12,6 +12,11 @@
             <p>Type: {{ pet.pet_type }}</p>
             <p>Age: {{ pet.age }}</p>
             <p>Owner: {{ pet.owner }}</p>
+            {% if pet.medications %}
+            <p><strong>Medications:</strong> {{ pet.medications }}</p>
+            {% else %}
+            <p><strong>Medications:</strong> None </p>
+            {% endif %}
 
             <h4>Appointments:</h4>
             {% for appt in pet.appointments.all %}
