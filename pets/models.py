@@ -31,5 +31,14 @@ class Appointment(models.Model):
 
     def __str__(self):
         return f"Appointment for {self.pet.name} on {self.date} at {self.time}"
+    
+class MedicalNote(models.Model):
+    pet = models.ForeignKey(Pet, related_name="notes", on_delete=models.CASCADE)
+    date = models.DateField(auto_now_add=True)
+    note = models.TextField()
+
+    def __str__(self):
+        return f"{self.pet.name} - {self.date}"
+
 
     

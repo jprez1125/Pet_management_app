@@ -5,6 +5,14 @@ The Pet Management System will allow users to:
 - View and update pet details
 - Support future expansion for owners, staff, and scheduling features
 
+Features
+- User authentication
+- Add/Edit/Delete pets
+- Track medications
+- Schedule appointments
+- View medical notes
+- Clean, responsive UI
+
 Tech stack
 Python
 Django
@@ -16,10 +24,4 @@ Team Members
 **Damescene Kalisa** backend
 **Laura Ibanez Diaz** frontend
 
-Current progress as of 05/02/2026
-- Django project created  
-- `pets` app created  
-- Project runs successfully  
-- pet model +add pet feature complete
-  
 
