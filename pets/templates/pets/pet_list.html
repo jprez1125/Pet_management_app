@@ -28,6 +28,13 @@
                 <p>No appointments yet</p>
             {% endfor %}
 
+            <h4><Strong>Medical Notes:</Strong></h4>
+            {% for note in pet.notes.all %}
+                <p>{{ note.note }}</p>
+            {% empty %}
+                <p>No medical notes yet</p>
+            {% endfor %}
+
             <!-- Edit Pet -->
             <form method="GET" action="{% url 'edit_pet' pet.id %}">
                 <button type="submit" class="btn-edit">

@@ -110,7 +110,40 @@ def delete_appointment(request, id):
 
 @login_required
 def medical_notes(request):
-    notes = MedicalNote.objects.select_related("pet").order_by("-date")
-    return render(request, "pets/medical_notes.html", {"notes": notes})
+    selected_pet_id = request.GET.get("pet_id")
+    if request.method == "POST":
+        pet_id = request.POST.get("pet")
+        date = request.POST.get("date")
+        note_text = request.POST.get("note")
+        pet = Pet.objects.get(id=pet_id)
+        MedicalNote.objects.create(
+            pet=pet,
+            date=date,
+            note=note_text
+        )
+    pets = Pet.objects.all()
+    notes = MedicalNote.objects.all()
+    return render(request, "pets/medical_notes.html", {
+        "notes": notes,
+        "pets": pets,
+        "selected_pet_id": selected_pet_id
+    })
+
+@login_required
+def delete_medical_note(request, id):
+    note = get_object_or_404(MedicalNote, id=id)
+    if request.method == "POST":
+        note.delete()
+        return redirect("medical_notes")
+    return redirect("medical_notes")
+
+@login_required
+def edit_medical_note(request, id):
+    note = get_object_or_404(MedicalNote, id=id)
+    if request.method == "POST":
+        note.note = request.POST.get("note")
+        note.save()
+        return redirect("medical_notes")
+    return render(request, "pets/edit_medical_note.html", {"note":note})
 
 

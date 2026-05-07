@@ -1,21 +1,82 @@
 {% extends 'pets/base.html' %}
 
 {% block content %}
+
 <h2>Medical Notes</h2>
 
+<form method="POST">
+    {% csrf_token %}
+
+    <label>Pet:</label><br>
+
+    <select name="pet">
+
+    {% if pets %}
+
+        {% for pet in pets %}
+
+            <option value="{{ pet.id }}"
+            {% if selected_pet_id == pet.id|stringformat:"s" %}selected{% endif %}>
+
+                {{ pet.name }}
+
+            </option>
+
+        {% endfor %}
+
+    {% else %}
+
+        <option disabled selected>
+            No pets available
+        </option>
+
+    {% endif %}
+
+</select>
+
+    <br><br>
+
+    <label>Date:</label><br>
+    <input type="date" name="date">
+
+    <br><br>
+
+    <label>Note:</label><br>
+    <textarea name="note"></textarea>
+
+    <br><br>
+
+    <button type="submit">Save Medical Note</button>
+
+</form>
+
+<hr>
+
 {% for note in notes %}
-    <div class="note-card">
-        <h3>{{ note.pet.name }}</h3>
+
+    <div style="margin-bottom: 20px;">
+
+        <h4>{{ note.pet.name }}</h4>
 
         <p><strong>Date:</strong> {{ note.date }}</p>
+
         <p>{{ note.note }}</p>
 
-        <h4>Medications</h4>
-<p>{{ note.pet.medications }}</p>
-            <hr>
+        <a href="{% url 'edit_medical_note' id=note.id %}">
+            <button type="button">Edit</button>
+        </a>
+
+        <form method="POST" action="{% url 'delete_medical_note' id=note.id %}">
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+        </form>
+
     </div>
+
 {% empty %}
+
     <p>No medical notes yet.</p>
+
 {% endfor %}
 
 {% endblock %}
