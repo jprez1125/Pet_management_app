@@ -1,8 +1,9 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 
-from .models import Pet, Appointment
+from .models import Pet, Appointment, MedicalNote
 from .pet_form import PetForm, AppointmentForm
+
 
 
 def home(request):
@@ -106,3 +107,10 @@ def delete_appointment(request, id):
     return render(request, "pets/delete_appointment.html", {
         "appointment": appt
     })
+
+@login_required
+def medical_notes(request):
+    notes = MedicalNote.objects.select_related("pet").order_by("-date")
+    return render(request, "pets/medical_notes.html", {"notes": notes})
+
+

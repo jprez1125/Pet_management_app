@@ -1,0 +1,21 @@
+{% extends 'pets/base.html' %}
+
+{% block content %}
+<h2>Medical Notes</h2>
+
+{% for note in notes %}
+    <div class="note-card">
+        <h3>{{ note.pet.name }}</h3>
+
+        <p><strong>Date:</strong> {{ note.date }}</p>
+        <p>{{ note.note }}</p>
+
+        <h4>Medications</h4>
+<p>{{ note.pet.medications }}</p>
+            <hr>
+    </div>
+{% empty %}
+    <p>No medical notes yet.</p>
+{% endfor %}
+
+{% endblock %}

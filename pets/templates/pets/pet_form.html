@@ -1,7 +1,13 @@
 {% extends 'pets/base.html' %}
 
 {% block content %}
-<h2>Add a Pet</h2>
+<h2>
+    {% if pet %}
+        Edit {{ pet.name }}
+    {% else %}
+        Add a Pet
+    {% endif %}
+</h2>
 
 <form method="POST">
     {% csrf_token %}
