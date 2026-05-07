@@ -31,4 +31,17 @@
 {% empty %}
     <p>No appointments yet</p>
 {% endfor %}
+
+<h3>Medical Notes</h3>
+{% for note in pet.notes.all %}
+    <div style="margin-bottom: 15px;">
+        <p><strong>Date:</strong> {{ note.date }}</p>
+        <p>{{ note.note }}</p>
+    </div>
+{% empty %}
+    <p>No medical notes yet.</p>
+{% endfor %}
+<a href="{% url 'medical_notes' %}?pet_id={{ pet.id }}">
+    <button type="button">Add Medical Note</button>
+</a>
 {% endblock %}

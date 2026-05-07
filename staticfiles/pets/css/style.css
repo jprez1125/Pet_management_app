@@ -130,3 +130,35 @@ body {
     text-decoration: none;
     margin-left: 6px;
 }
+.card a {
+    text-decoration: none;
+    color: #245c5a;
+}
+
+.card a:hover {
+    color: #2f7d7a;
+}
+.edit-note-textarea {
+    width: 500px;
+    height: 200px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    resize: vertical;
+}
+
+.edit-note-button {
+    background-color: #2b7a78;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.edit-note-button:hover {
+    background-color: #205c5a;
+}

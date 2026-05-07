@@ -1,0 +1,21 @@
+{% extends 'pets/base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'pets/css/style.css' %}">
+
+{% block content %}
+
+<h2>Edit Medical Note</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <textarea name="note" class="edit-note-textarea">{{ note.note }}</textarea>
+
+    <br><br>
+
+    <button type="submit" class="edit-note-button">
+    Save Changes
+</button>
+</form>
+
+{% endblock %}
