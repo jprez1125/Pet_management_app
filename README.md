@@ -14,7 +14,7 @@ SQLite
 Team Members
 **Jennifer Perez**project manager/ middleware
 **Damescene Kalisa** backend
-**Laura ibanez diaz** frontend
+**Laura Ibanez Diaz** frontend
 
 Current progress as of 05/02/2026
 - Django project created  
